@@ -3,7 +3,6 @@ library(readxl)
 library(stringr)
 library(dplyr)
 
-# df <- read_excel("~/Wordle_ARM/Output_All_UPD_5l_w_imp.xlsx")
 df <- read_excel("Output_All_UPD_5l_w_imp.xlsx")
 
 
