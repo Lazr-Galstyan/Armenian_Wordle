@@ -289,7 +289,8 @@ ui <- fluidPage(
   uiOutput("used")
 )
 
-Sys.setenv(TZ='Asia/Dubai')
+
+Sys.setenv(TZ='Asia/Yerevan')
 set.seed(as.integer(Sys.Date()))
 target <- sample(words_common_5, 1)
 
@@ -311,7 +312,14 @@ server <- function(input, output, session) {
   
   # Create reactiveVal to store all the guesses
   all_guesses <- reactiveVal(character())
-
+  
+  # observeEvent(input$go, {
+  #   shinyjs::disable("go")
+  #   debounce(10000, function() {
+  #     shinyjs::enable("go"))
+  # })
+  # })
+  
   output$result <- renderUI({
     if (!tolower(input$guess) %in% words_all_5) {
       req(FALSE, cancelOutput = TRUE)
